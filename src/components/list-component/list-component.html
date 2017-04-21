@@ -1,0 +1,29 @@
+<button ion-button block type="button" (click)="addDrill()">
+    <p>Add Drill</p>&nbsp;&nbsp;
+    <ion-icon name="add"></ion-icon>
+</button>
+
+<ion-list
+    show-delete="shouldShowDelete"
+    show-reorder="shouldShowReorder"
+    can-swipe="listCanSwipe">
+    <ion-item
+        *ngFor="let drill of drills | async"
+        class="item-thumbnail-right">
+        {{drill.title}}
+        <ion-icon
+            name="create"
+            color="primary"
+            (click)="updateDrill(drill.$key)">
+        </ion-icon>
+        <ion-icon
+            name="trash"
+            color="danger"
+            (click)="removeDrill(drill.$key)">
+        </ion-icon>
+    </ion-item>
+</ion-list>
+
+
+
+<!--(click)="showOptions(drill.$key, drill.title)"-->
