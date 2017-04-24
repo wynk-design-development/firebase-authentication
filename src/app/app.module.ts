@@ -19,6 +19,7 @@ import { HomePage } from '../pages/home/home';
 
 // components
 import { ListComponent } from '../components/list-component/list-component';
+import { TilesComponent } from '../components/tiles-component/tiles-component';
 
 
 
@@ -39,10 +40,13 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [
     MyApp,
+    //pages
     HomePage,
     LoginPage,
     RegisterPage,
-    ListComponent
+    //components
+    ListComponent,
+    TilesComponent
   ],
   imports: [
     BrowserModule,
