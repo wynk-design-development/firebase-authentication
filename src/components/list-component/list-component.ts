@@ -15,26 +15,40 @@ import { AngularFire, AuthProviders, AuthMethods, FirebaseListObservable } from 
 
 export class ListComponent {
     drills: FirebaseListObservable<any>;
+    uid: string;
 
     constructor(
         private alertCtrl: AlertController,
         public actionSheetCtrl: ActionSheetController,
         public af: AngularFire
     ) {
-        this.drills = af.database.list('/drills');
+        this.af.auth.subscribe(auth => {
+          if ( auth ) {
+            this.uid = auth.uid;
+            this.drills = af.database.list('/drills/'+this.uid);
+          }
+        });
     }
 
 
 
     addDrill() {
       let prompt = this.alertCtrl.create({
-        title: 'Song Name',
+        title: 'Drill Name',
         message: "Enter a name for this new song you're so keen on adding",
         inputs: [
           {
             name: 'title',
-            placeholder: 'Title'
+            placeholder: 'Title',
           },
+          {
+            type: 'type',
+            placeholder: 'Type'
+          },
+          {
+            type: 'link',
+            placeholder: 'Link'
+          }
         ],
         buttons: [
           {
@@ -46,8 +60,11 @@ export class ListComponent {
           {
             text: 'Save',
             handler: data => {
+              console.log('data - ',data);
               this.drills.push({
-                title: data.title
+                title: data.title,
+                type: data[1],
+                link: data[2]
               });
             }
           }
@@ -58,7 +75,7 @@ export class ListComponent {
 
 
 
-    showOptions(drillId, drillTitle) {
+    showOptions(drillId, drillTitle, drillType, drillLink) {
       let actionSheet = this.actionSheetCtrl.create({
         title: 'What do you want to do?',
         buttons: [
@@ -71,7 +88,7 @@ export class ListComponent {
           }, {
             text: 'Update title',
             handler: () => {
-              this.updateDrill(drillId, drillTitle);
+              this.updateDrill(drillId, drillTitle, drillType, drillLink)
             }
           }, {
             text: 'Cancel',
@@ -93,7 +110,7 @@ export class ListComponent {
 
 
 
-    updateDrill(drillId, drillTitle){
+    updateDrill(drillId, drillTitle, drillType, drillLink){
         let prompt = this.alertCtrl.create({
             title: 'Drill Name',
             message: "Update the name for this drill",
@@ -103,6 +120,16 @@ export class ListComponent {
                 placeholder: 'Title',
                 value: drillTitle
               },
+              {
+                name: 'type',
+                placeholder: 'Type',
+                value: drillType
+              },
+              {
+                name: 'link',
+                placeholder: 'Link',
+                value: drillLink
+              }
             ],
             buttons: [
               {
@@ -115,7 +142,9 @@ export class ListComponent {
                 text: 'Save',
                 handler: data => {
                   this.drills.update(drillId, {
-                    title: data.title
+                    title: data.title,
+                    type: data[1],
+                    link: data[2]
                   });
                 }
               }

@@ -24313,6 +24313,17 @@ ion-navbar.toolbar {
   }
 }
 
+list-component .list_label {
+  float: left;
+  text-align: left;
+}
+
+list-component .edit_icon,
+list-component .delete_icon {
+  margin: 0 5px;
+  float: right;
+}
+
 tiles-component .card_grid {
   position: relative;
   width: 100%;

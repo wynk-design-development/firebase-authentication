@@ -34,7 +34,9 @@ export class HomePage {
   ) {
     // check if user is signed in
     this.af.auth.subscribe(auth => {
-        if (auth) {}
+        if (auth) {
+          console.log(auth.uid);
+        }
     });
 }
 
