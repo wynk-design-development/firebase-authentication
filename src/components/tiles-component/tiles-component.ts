@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 
 //Pages
 import { DrillsPage } from '../../pages/drills/drills';
+import { RosterPage } from '../../pages/roster/roster';
 
 
 @Component({
@@ -21,5 +22,11 @@ export class TilesComponent {
 
   public goToDrillsPage() {
   	this.nav.push(DrillsPage);
+  } //goToDrillPage
+
+
+
+  public goToRosterPage() {
+  	this.nav.push(RosterPage);
   } //goToDrillPage
 }

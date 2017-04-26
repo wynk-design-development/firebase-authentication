@@ -17,6 +17,7 @@ import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { HomePage } from '../pages/home/home';
 import { DrillsPage } from '../pages/drills/drills';
+import { RosterPage } from '../pages/roster/roster';
 
 // components
 import { ListComponent } from '../components/list-component/list-component';
@@ -46,6 +47,7 @@ export const firebaseConfig = {
     LoginPage,
     RegisterPage,
     DrillsPage,
+    RosterPage,
     //components
     ListComponent,
     TilesComponent
@@ -67,7 +69,8 @@ export const firebaseConfig = {
     HomePage,
     LoginPage,
     RegisterPage,
-    DrillsPage
+    DrillsPage,
+    RosterPage
   ],
   providers: [
     StatusBar,
