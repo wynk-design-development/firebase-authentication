@@ -24320,23 +24320,24 @@ list-component .list_label {
 
 list-component .edit_icon,
 list-component .delete_icon {
-  margin: 0 5px;
   float: right;
+  margin: 0 5px;
+  color: black;
 }
 
 tiles-component .card_grid {
   position: relative;
   width: 100%;
-  max-width: 600px;
   margin: 0 auto;
 }
 
 tiles-component .card_grid .col {
   position: relative;
-  margin: 10px;
-  height: 200px;
   text-align: center;
   background: white;
+  height: 200px;
+  border: 1px solid black;
+  cursor: pointer;
 }
 
 tiles-component .card_grid ion-card-header {
@@ -24348,23 +24349,16 @@ tiles-component .card_grid ion-card-header {
   transform: translateY(-50%);
 }
 
+page-drills .drills_content {
+  background: #e9e9e9;
+}
+
 page-home .home {
   background: #e9e9e9;
 }
 
 page-login .login-content {
   background: #e9e9e9;
-}
-
-page-login .login-content .logo-row {
-  padding-top: 50px;
-  padding-bottom: 20px;
-}
-
-page-login .login-content .login-box {
-  background: #c33636;
-  padding: 20px 20px 0px 20px;
-  margin-top: 30px;
 }
 
 page-login .login-content ion-row {
@@ -24381,12 +24375,6 @@ page-login .login-content ion-item {
   margin-bottom: 10px;
   border: 1px solid #ffffff;
   border-bottom: 0px !important;
-  box-shadow: none !important;
-}
-
-page-login .login-content .signup-col {
-  margin: 0px 16px 0px 16px;
-  padding-bottom: 20px;
 }
 
 page-login .login-content .item-inner {

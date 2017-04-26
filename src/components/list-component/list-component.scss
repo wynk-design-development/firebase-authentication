@@ -5,7 +5,8 @@ list-component {
   }
   .edit_icon,
   .delete_icon {
+  	float: right;
     margin: 0 5px;
-    float: right;
+    color: black;
   }
 }

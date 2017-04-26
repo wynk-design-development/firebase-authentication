@@ -1,14 +1,24 @@
 <!-- Generated template for the TilesComponent component -->
 <ion-grid class="card_grid">
-	<ion-row>
-		<ion-col>
+	<ion-row col-12 col-md-8 offset-md-2>
+		<ion-col col-6 (click)="goToDrillsPage()">
+			<ion-card-header>
+				Drills
+			</ion-card-header> 
+		</ion-col>
+		<ion-col col-6>
 			<ion-card-header>
 				Roster
 				</ion-card-header> 
 		</ion-col>
-		<ion-col>
+		<ion-col col-6>
 			<ion-card-header>
-				Drills
+				Schedule
+			</ion-card-header> 
+		</ion-col>
+		<ion-col col-6>
+			<ion-card-header>
+				Workouts
 			</ion-card-header> 
 		</ion-col>
 	</ion-row>

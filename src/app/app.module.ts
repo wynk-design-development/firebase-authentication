@@ -16,6 +16,7 @@ import { AuthService } from '../providers/auth-service';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { HomePage } from '../pages/home/home';
+import { DrillsPage } from '../pages/drills/drills';
 
 // components
 import { ListComponent } from '../components/list-component/list-component';
@@ -44,13 +45,18 @@ export const firebaseConfig = {
     HomePage,
     LoginPage,
     RegisterPage,
+    DrillsPage,
     //components
     ListComponent,
     TilesComponent
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {}, {
+      links: [
+
+      ]
+    }),
      AngularFireModule.initializeApp(firebaseConfig) //initialize Firebase
   ],
   bootstrap: [
@@ -60,7 +66,8 @@ export const firebaseConfig = {
     MyApp,
     HomePage,
     LoginPage,
-    RegisterPage
+    RegisterPage,
+    DrillsPage
   ],
   providers: [
     StatusBar,

@@ -1,22 +1,25 @@
 import { Component } from '@angular/core';
+import { NavController } from 'ionic-angular';
 
-/**
- * Generated class for the TilesComponent component.
- *
- * See https://angular.io/docs/ts/latest/api/core/index/ComponentMetadata-class.html
- * for more info on Angular Components.
- */
+//Pages
+import { DrillsPage } from '../../pages/drills/drills';
+
+
 @Component({
   selector: 'tiles-component',
   templateUrl: 'tiles-component.html'
 })
-export class TilesComponent {
 
+
+
+export class TilesComponent {
   text: string;
 
-  constructor() {
-    console.log('Hello TilesComponent Component');
-    this.text = 'Hello World';
-  }
+  constructor ( public nav: NavController ) {}
 
+
+
+  public goToDrillsPage() {
+  	this.nav.push(DrillsPage);
+  } //goToDrillPage
 }
